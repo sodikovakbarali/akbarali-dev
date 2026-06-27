@@ -20,7 +20,7 @@ export const timeline: TimelineItem[] = [
     title: "University of Arizona",
     description:
       "Graduated from the University of Arizona with a Computer Science degree.",
-    logo: "/logos/uofa.svg",
+    logo: "/logos/uofa.png",
     logoAlt: "University of Arizona logo",
   },
   {
