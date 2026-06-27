@@ -1,20 +1,17 @@
-"use client";
-
 import { profile } from "@/data/profile";
-import { FadeIn, GlassCard } from "@/components/ui-primitives";
 
 export function CurrentlyBuilding() {
   return (
-    <div className="grid gap-4 md:grid-cols-3">
-      {profile.currentlyBuilding.map((item, index) => (
-        <FadeIn key={item.name} delay={index * 0.08}>
-          <GlassCard className="h-full p-5 transition-colors hover:border-white/20 md:p-6">
-            <p className="font-mono text-xs text-emerald-400">{item.name}</p>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              {item.description}
-            </p>
-          </GlassCard>
-        </FadeIn>
+    <div className="divide-y-2 divide-foreground border-2 border-foreground bg-paper">
+      {profile.currentlyBuilding.map((item) => (
+        <div key={item.name} className="grid gap-2 p-6 md:grid-cols-[8rem_1fr] md:gap-8 md:p-8">
+          <p className="font-mono text-xs font-bold uppercase tracking-widest text-stamp">
+            {item.name}
+          </p>
+          <p className="text-sm leading-relaxed text-muted-foreground md:text-base">
+            {item.description}
+          </p>
+        </div>
       ))}
     </div>
   );

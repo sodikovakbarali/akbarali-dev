@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
 import { SiteLayout } from "@/components/SiteLayout";
 import { ContactCTA } from "@/components/ContactCTA";
-import { SectionHeader } from "@/components/ui-primitives";
+import { PageShell, SectionHeader } from "@/components/ui-primitives";
 import { profile } from "@/data/profile";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: `Contact — ${profile.pageTitle}`,
@@ -13,16 +13,15 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <SiteLayout>
-      <section className="px-4 py-16 md:px-6 md:py-24">
-        <div className="mx-auto max-w-3xl">
-          <SectionHeader
-            eyebrow="Contact"
-            title="Let's connect"
-            description={profile.contact.intro}
-          />
-          <ContactCTA />
-        </div>
-      </section>
+      <PageShell>
+        <SectionHeader
+          number="—"
+          eyebrow="Contact"
+          title="Start a conversation"
+          description={profile.contact.intro}
+        />
+        <ContactCTA />
+      </PageShell>
     </SiteLayout>
   );
 }

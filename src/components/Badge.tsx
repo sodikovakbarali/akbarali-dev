@@ -8,10 +8,10 @@ type BadgeProps = {
 };
 
 const variantStyles = {
-  default: "",
-  live: "border-emerald-500/30 bg-emerald-500/10 text-emerald-300",
-  development: "border-violet-500/30 bg-violet-500/10 text-violet-300",
-  muted: "border-white/10 bg-white/5 text-muted-foreground",
+  default: "border-foreground bg-foreground text-paper",
+  live: "border-stamp bg-stamp/10 text-stamp",
+  development: "border-navy bg-navy/10 text-navy",
+  muted: "border-border bg-background text-muted-foreground",
 };
 
 export function Badge({ children, variant = "default", className }: BadgeProps) {
@@ -19,7 +19,7 @@ export function Badge({ children, variant = "default", className }: BadgeProps) 
     <ShadcnBadge
       variant="outline"
       className={cn(
-        "rounded-full px-2.5 py-0.5 text-xs font-medium",
+        "rounded-none px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider",
         variantStyles[variant],
         className
       )}

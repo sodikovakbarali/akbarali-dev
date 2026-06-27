@@ -1,25 +1,28 @@
-"use client";
-
-import { FadeIn, GlassCard } from "@/components/ui-primitives";
-
-type StatCardProps = {
+export function StatCard({
+  value,
+  label,
+  description,
+  isLast = false,
+}: {
   value: string;
   label: string;
   description: string;
-  index?: number;
-};
-
-export function StatCard({ value, label, description, index = 0 }: StatCardProps) {
+  isLast?: boolean;
+}) {
   return (
-    <FadeIn delay={index * 0.05}>
-      <GlassCard className="group p-5 transition-colors hover:border-white/20 hover:bg-white/[0.05] md:p-6">
-        <p className="font-mono text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-          {value}
-        </p>
-        <p className="mt-1 text-sm font-medium text-foreground">{label}</p>
-        <p className="mt-1 text-xs text-muted-foreground">{description}</p>
-      </GlassCard>
-    </FadeIn>
+    <div
+      className={`flex flex-col justify-center px-4 py-5 md:px-6 md:py-6 ${
+        !isLast ? "border-b border-border md:border-b-0 md:border-r md:border-border" : ""
+      }`}
+    >
+      <p className="font-mono text-2xl font-bold tabular-nums text-foreground md:text-3xl">
+        {value}
+      </p>
+      <p className="mt-1 font-mono text-[10px] uppercase tracking-widest text-stamp">
+        {label}
+      </p>
+      <p className="mt-1 text-xs text-muted-foreground">{description}</p>
+    </div>
   );
 }
 
@@ -29,11 +32,11 @@ export function StatsSection({
   stats: readonly { value: string; label: string; description: string }[];
 }) {
   return (
-    <section className="px-4 py-16 md:px-6 md:py-20">
-      <div className="mx-auto max-w-6xl">
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4 lg:grid-cols-6">
+    <section className="border-b-2 border-foreground bg-background">
+      <div className="mx-auto max-w-5xl px-4 md:px-8">
+        <div className="grid grid-cols-2 border-x-2 border-t-2 border-foreground md:grid-cols-3 lg:grid-cols-6">
           {stats.map((stat, i) => (
-            <StatCard key={stat.label} {...stat} index={i} />
+            <StatCard key={stat.label} {...stat} isLast={i === stats.length - 1} />
           ))}
         </div>
       </div>

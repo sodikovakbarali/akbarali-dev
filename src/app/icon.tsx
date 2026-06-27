@@ -13,16 +13,16 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%)",
-          borderRadius: 8,
+          background: "#F7F4ED",
+          border: "3px solid #141210",
         }}
       >
         <div
           style={{
-            fontSize: 18,
-            fontWeight: 700,
-            color: "#34d399",
-            fontFamily: "system-ui, sans-serif",
+            fontSize: 16,
+            fontWeight: 800,
+            color: "#9B1B30",
+            fontFamily: "monospace",
           }}
         >
           A
