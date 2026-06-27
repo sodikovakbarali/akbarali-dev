@@ -28,8 +28,8 @@ export const timeline: TimelineItem[] = [
     title: "Returned to Uzbekistan",
     description:
       "Returned to Uzbekistan and started building education technology products.",
-    logo: "/logos/uzbekistan.svg",
-    logoAlt: "Uzbekistan",
+    logo: "/logos/return-home.svg",
+    logoAlt: "Returned to build in Uzbekistan",
   },
   {
     year: "2026",

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Returned home">
+  <rect width="64" height="64" fill="#F7F4ED"/>
+  <path d="M32 14 L12 30 L16 30 L16 50 L48 50 L48 30 L52 30 Z" fill="none" stroke="#141210" stroke-width="2.5" stroke-linejoin="miter"/>
+  <rect x="26" y="36" width="12" height="14" fill="#9B1B30"/>
+  <path d="M32 22 L32 28" stroke="#1E3A5F" stroke-width="2.5" stroke-linecap="square"/>
+</svg>
