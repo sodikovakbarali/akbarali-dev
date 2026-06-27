@@ -43,11 +43,31 @@ export const profile = {
     intro:
       "Interested in exam-tech, education platforms, or developer collaboration? Reach out.",
     availability: [
-      "EdTech collaborations",
-      "Developer networking",
-      "IELTS/SAT center partnerships",
-      "Technical consulting",
-      "AI automation projects",
+      {
+        label: "EdTech collaborations",
+        logo: "/logos/edtech.svg",
+        logoAlt: "EdTech collaborations",
+      },
+      {
+        label: "Developer networking",
+        logo: "/logos/networking.svg",
+        logoAlt: "Developer networking",
+      },
+      {
+        label: "IELTS/SAT center partnerships",
+        logo: "/logos/partnerships.svg",
+        logoAlt: "IELTS and SAT center partnerships",
+      },
+      {
+        label: "Technical consulting",
+        logo: "/logos/consulting.svg",
+        logoAlt: "Technical consulting",
+      },
+      {
+        label: "AI automation projects",
+        logo: "/logos/ai-automation.svg",
+        logoAlt: "AI automation projects",
+      },
     ],
   },
   promotions: {

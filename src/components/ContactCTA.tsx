@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { profile } from "@/data/profile";
+import { LogoMark } from "@/components/LogoMark";
 
 export function ContactCTA({ showAvailability = true }: { showAvailability?: boolean }) {
   const links = [
@@ -41,11 +42,14 @@ export function ContactCTA({ showAvailability = true }: { showAvailability?: boo
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
             Available for
           </p>
-          <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+          <ul className="mt-6 grid gap-4 sm:grid-cols-2">
             {profile.contact.availability.map((item) => (
-              <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
-                <span className="mt-2 h-1 w-4 shrink-0 bg-stamp" />
-                {item}
+              <li
+                key={item.label}
+                className="flex items-center gap-4 border-2 border-border bg-background p-4 transition-colors hover:border-foreground"
+              >
+                <LogoMark src={item.logo} alt={item.logoAlt} size="sm" />
+                <span className="text-sm font-medium text-foreground">{item.label}</span>
               </li>
             ))}
           </ul>

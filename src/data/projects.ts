@@ -22,6 +22,7 @@ export type Project = {
   badges: string[];
   screenshots: ProjectScreenshot[];
   heroImage?: string;
+  logo?: string;
   accent: string;
   upcoming?: string[];
 };
@@ -63,7 +64,7 @@ export const projects: Project[] = [
       "Playwright",
       "k6",
     ],
-    role: "Founder / full-stack developer",
+    role: "Co-founder / full-stack developer",
     proof:
       "Live production deployment, multi-role SaaS architecture, payment workflows, desktop auto-updates, and load testing for 100+ concurrent students.",
     badges: [
@@ -77,6 +78,7 @@ export const projects: Project[] = [
       "DigitalOcean",
     ],
     heroImage: "/projects/ielts-acer-mobile.png",
+    logo: "/logos/ielts-acer.png",
     screenshots: [
       {
         title: "Mobile Landing",
@@ -120,7 +122,7 @@ export const projects: Project[] = [
       "Anthropic Claude",
       "Google OAuth",
     ],
-    role: "Founder / full-stack developer",
+    role: "Co-founder / full-stack developer",
     proof:
       "Adaptive testing engine, Bluebook-style session UI, AI tutoring, anti-cheat/proctoring, score analytics, and production-ready Docker deployment architecture.",
     badges: [
@@ -134,6 +136,7 @@ export const projects: Project[] = [
       "PostgreSQL",
     ],
     heroImage: "/projects/sat-acer-mobile.png",
+    logo: "/logos/sat-acer.png",
     screenshots: [
       {
         title: "Mobile Landing",

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Technical consulting">
+  <rect width="64" height="64" fill="#F7F4ED"/>
+  <path d="M20 40 L32 16 L44 40 Z" fill="none" stroke="#141210" stroke-width="2.5"/>
+  <rect x="28" y="40" width="8" height="12" fill="#141210"/>
+  <circle cx="32" cy="30" r="3" fill="#9B1B30"/>
+</svg>

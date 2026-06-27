@@ -5,6 +5,7 @@ import type { Project } from "@/data/projects";
 import { Badge } from "@/components/Badge";
 import { DossierPanel } from "@/components/ui-primitives";
 import { ProductScreenshot } from "@/components/ProductScreenshot";
+import { LogoMark } from "@/components/LogoMark";
 
 function statusVariant(status: Project["status"]) {
   if (status === "live") return "live";
@@ -58,19 +59,24 @@ export function ProjectCard({
       <div className="grid lg:grid-cols-[1fr_auto]">
         <div className="p-6 md:p-8">
           <div className="flex items-start justify-between gap-4">
-            <div>
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="font-mono text-xs text-muted-foreground">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <Badge variant={statusVariant(project.status)}>
-                  {project.statusLabel}
-                </Badge>
+            <div className="flex items-start gap-4">
+              {project.logo && (
+                <LogoMark src={project.logo} alt={`${project.name} logo`} size="sm" />
+              )}
+              <div>
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="font-mono text-xs text-muted-foreground">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <Badge variant={statusVariant(project.status)}>
+                    {project.statusLabel}
+                  </Badge>
+                </div>
+                <h3 className="mt-4 text-xl font-bold md:text-2xl">{project.name}</h3>
+                <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
+                  {project.tagline}
+                </p>
               </div>
-              <h3 className="mt-4 text-xl font-bold md:text-2xl">{project.name}</h3>
-              <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
-                {project.tagline}
-              </p>
             </div>
             {project.url && (
               <Link

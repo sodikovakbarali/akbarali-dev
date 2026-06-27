@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Education mentorship">
+  <rect width="64" height="64" fill="#F7F4ED"/>
+  <rect x="12" y="14" width="40" height="36" fill="none" stroke="#141210" stroke-width="3"/>
+  <path d="M20 24h24M20 32h18M20 40h22" stroke="#9B1B30" stroke-width="2.5" stroke-linecap="square"/>
+  <path d="M44 48 L52 56 L56 52" fill="none" stroke="#141210" stroke-width="2.5" stroke-linecap="square"/>
+</svg>

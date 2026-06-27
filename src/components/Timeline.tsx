@@ -1,4 +1,5 @@
 import type { TimelineItem } from "@/data/timeline";
+import { LogoMark } from "@/components/LogoMark";
 
 export function Timeline({ items }: { items: TimelineItem[] }) {
   return (
@@ -6,7 +7,7 @@ export function Timeline({ items }: { items: TimelineItem[] }) {
       {items.map((item, index) => (
         <div
           key={`${item.year}-${item.title}`}
-          className={`grid grid-cols-[4.5rem_1fr] gap-4 px-4 py-5 md:grid-cols-[6rem_1fr] md:gap-8 md:px-8 md:py-6 ${
+          className={`grid grid-cols-[4.5rem_1fr] gap-4 px-4 py-5 md:grid-cols-[6rem_1fr_auto] md:items-center md:gap-8 md:px-8 md:py-6 ${
             index !== items.length - 1 ? "border-b border-border" : ""
           }`}
         >
@@ -16,11 +17,14 @@ export function Timeline({ items }: { items: TimelineItem[] }) {
           >
             {item.year}
           </time>
-          <div>
+          <div className="col-span-1 md:col-span-1">
             <h3 className="text-base font-bold md:text-lg">{item.title}</h3>
             <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
               {item.description}
             </p>
+          </div>
+          <div className="col-span-2 flex justify-start md:col-span-1 md:justify-end">
+            <LogoMark src={item.logo} alt={item.logoAlt} size="md" />
           </div>
         </div>
       ))}

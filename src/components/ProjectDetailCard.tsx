@@ -4,6 +4,7 @@ import type { Project } from "@/data/projects";
 import { Badge } from "@/components/Badge";
 import { DossierPanel } from "@/components/ui-primitives";
 import { ProductScreenshot } from "@/components/ProductScreenshot";
+import { LogoMark } from "@/components/LogoMark";
 
 function statusVariant(status: Project["status"]) {
   if (status === "live") return "live";
@@ -62,11 +63,16 @@ export function ProjectDetailCard({
           </div>
 
           <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-            <div className="max-w-3xl">
-              <h2 className="text-2xl font-bold md:text-4xl">{project.name}</h2>
-              <p className="mt-3 text-base text-muted-foreground md:text-lg">
-                {project.tagline}
-              </p>
+            <div className="flex items-start gap-4 max-w-3xl">
+              {project.logo && (
+                <LogoMark src={project.logo} alt={`${project.name} logo`} size="lg" />
+              )}
+              <div>
+                <h2 className="text-2xl font-bold md:text-4xl">{project.name}</h2>
+                <p className="mt-3 text-base text-muted-foreground md:text-lg">
+                  {project.tagline}
+                </p>
+              </div>
             </div>
             {project.url && (
               <Link
