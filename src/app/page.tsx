@@ -6,6 +6,7 @@ import { Timeline } from "@/components/Timeline";
 import { TechStackGrid } from "@/components/TechStackGrid";
 import { CurrentlyBuilding } from "@/components/CurrentlyBuilding";
 import { ContactCTA } from "@/components/ContactCTA";
+import { AdAstraBroadcast } from "@/components/AdAstraBroadcast";
 import { PageShell, SectionHeader } from "@/components/ui-primitives";
 import { SiteLayout } from "@/components/SiteLayout";
 import { profile } from "@/data/profile";
@@ -42,9 +43,21 @@ export default function HomePage() {
       </PageShell>
 
       <PageShell className="border-t-2 border-foreground pt-0 md:pt-0">
-        <section id="record">
+        <section id="broadcast">
           <SectionHeader
             number="02"
+            eyebrow="Ad Astra Solutions"
+            title="Product demos & promotions"
+            description="Software walkthroughs, feature launches, and center promos — published on Instagram as they ship."
+          />
+          <AdAstraBroadcast />
+        </section>
+      </PageShell>
+
+      <PageShell className="border-t-2 border-foreground pt-0 md:pt-0">
+        <section id="record">
+          <SectionHeader
+            number="03"
             eyebrow="Record"
             title="Proof of work timeline"
             description="From scholarship to CS degree to building exam-tech products in Uzbekistan."
@@ -56,7 +69,7 @@ export default function HomePage() {
       <PageShell className="border-t-2 border-foreground pt-0 md:pt-0">
         <section id="stack">
           <SectionHeader
-            number="03"
+            number="04"
             eyebrow="Stack"
             title="Systems & tools"
             description="Frontend, backend, desktop, AI, infrastructure, and product capabilities."
@@ -68,7 +81,7 @@ export default function HomePage() {
       <PageShell className="border-t-2 border-foreground pt-0 md:pt-0">
         <section>
           <SectionHeader
-            number="04"
+            number="05"
             eyebrow="Active"
             title="Currently building"
             description="Focus areas across IELTS Acer, SAT Acer, and upcoming experiments."

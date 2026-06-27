@@ -1,9 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/data/projects";
 import { Badge } from "@/components/Badge";
 import { DossierPanel } from "@/components/ui-primitives";
-import { ScreenshotMockup } from "@/components/ScreenshotMockup";
+import { ProductScreenshot } from "@/components/ProductScreenshot";
 
 function statusVariant(status: Project["status"]) {
   if (status === "live") return "live";
@@ -53,53 +54,75 @@ export function ProjectCard({
   }
 
   return (
-    <DossierPanel stripe={projectStripe(project.status)} className="p-6 md:p-8">
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="font-mono text-xs text-muted-foreground">
-              {String(index + 1).padStart(2, "0")}
-            </span>
-            <Badge variant={statusVariant(project.status)}>
-              {project.statusLabel}
-            </Badge>
+    <DossierPanel stripe={projectStripe(project.status)} className="overflow-hidden">
+      <div className="grid lg:grid-cols-[1fr_auto]">
+        <div className="p-6 md:p-8">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="font-mono text-xs text-muted-foreground">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <Badge variant={statusVariant(project.status)}>
+                  {project.statusLabel}
+                </Badge>
+              </div>
+              <h3 className="mt-4 text-xl font-bold md:text-2xl">{project.name}</h3>
+              <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
+                {project.tagline}
+              </p>
+            </div>
+            {project.url && (
+              <Link
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0 border-2 border-foreground p-2 transition-colors hover:bg-foreground hover:text-paper"
+                aria-label={`Visit ${project.name}`}
+              >
+                <ArrowUpRight className="h-4 w-4" />
+              </Link>
+            )}
           </div>
-          <h3 className="mt-4 text-xl font-bold md:text-2xl">{project.name}</h3>
-          <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
-            {project.tagline}
-          </p>
-        </div>
-        {project.url && (
+
+          {!compact && project.screenshots.length > 0 && !project.heroImage && (
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              {project.screenshots.slice(0, 2).map((screenshot, i) => (
+                <ProductScreenshot
+                  key={screenshot.title}
+                  screenshot={screenshot}
+                  exhibit={`${String.fromCharCode(65 + i)}`}
+                />
+              ))}
+            </div>
+          )}
+
           <Link
-            href={project.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 border-2 border-foreground p-2 transition-colors hover:bg-foreground hover:text-paper"
-            aria-label={`Visit ${project.name}`}
+            href="/projects"
+            className="mt-6 inline-block font-mono text-xs uppercase tracking-widest text-stamp underline decoration-2 underline-offset-4 hover:text-foreground"
           >
-            <ArrowUpRight className="h-4 w-4" />
+            Full dossier →
           </Link>
+        </div>
+
+        {project.heroImage && (
+          <div className="border-t-2 border-foreground bg-background p-4 lg:w-56 lg:border-l-2 lg:border-t-0 xl:w-64">
+            <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+              Live product
+            </p>
+            <div className="relative mx-auto aspect-[9/19] max-w-[200px] overflow-hidden border-2 border-foreground">
+              <Image
+                src={project.heroImage}
+                alt={`${project.name} mobile landing`}
+                fill
+                className="object-cover object-top"
+                sizes="200px"
+                priority={index === 0}
+              />
+            </div>
+          </div>
         )}
       </div>
-
-      {!compact && project.screenshots.length > 0 && (
-        <div className="mt-6 grid gap-3 sm:grid-cols-2">
-          {project.screenshots.slice(0, 2).map((screenshot, i) => (
-            <ScreenshotMockup
-              key={screenshot.title}
-              screenshot={screenshot}
-              exhibit={`${String.fromCharCode(65 + i)}`}
-            />
-          ))}
-        </div>
-      )}
-
-      <Link
-        href="/projects"
-        className="mt-6 inline-block font-mono text-xs uppercase tracking-widest text-stamp underline decoration-2 underline-offset-4 hover:text-foreground"
-      >
-        Full dossier →
-      </Link>
     </DossierPanel>
   );
 }

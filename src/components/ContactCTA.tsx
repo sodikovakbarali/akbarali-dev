@@ -6,6 +6,7 @@ export function ContactCTA({ showAvailability = true }: { showAvailability?: boo
     { label: "Telegram", href: profile.links.telegram },
     { label: "GitHub", href: profile.links.github },
     { label: "LinkedIn", href: profile.links.linkedin },
+    { label: "Instagram", href: profile.links.instagram },
     { label: "Email", href: profile.links.email },
   ];
 
@@ -19,14 +20,16 @@ export function ContactCTA({ showAvailability = true }: { showAvailability?: boo
         <p className="mt-4 max-w-2xl text-muted-foreground">{profile.contact.intro}</p>
       </div>
 
-      <div className="grid sm:grid-cols-2">
-        {links.map((link) => (
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
+        {links.map((link, i) => (
           <Link
             key={link.label}
             href={link.href}
             target={link.href.startsWith("mailto") ? undefined : "_blank"}
             rel={link.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
-            className="border-b border-r border-border px-6 py-5 font-mono text-xs uppercase tracking-widest transition-colors hover:bg-foreground hover:text-paper sm:[&:nth-child(2)]:border-r-0 sm:[&:nth-child(3)]:border-b-0"
+            className={`border-b border-r border-border px-4 py-5 font-mono text-xs uppercase tracking-widest transition-colors hover:bg-foreground hover:text-paper md:px-6 ${
+              i === links.length - 1 ? "col-span-2 sm:col-span-1 lg:col-span-1" : ""
+            }`}
           >
             {link.label} →
           </Link>

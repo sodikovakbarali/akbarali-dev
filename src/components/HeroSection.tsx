@@ -48,18 +48,24 @@ export function HeroSection() {
               </li>
               <li className="flex justify-between border-b border-border pb-2">
                 <span className="text-muted-foreground">02</span>
+                <Link href="#broadcast" className="hover:text-stamp hover:underline">
+                  Broadcast
+                </Link>
+              </li>
+              <li className="flex justify-between border-b border-border pb-2">
+                <span className="text-muted-foreground">03</span>
                 <Link href="#record" className="hover:text-stamp hover:underline">
                   Record
                 </Link>
               </li>
               <li className="flex justify-between border-b border-border pb-2">
-                <span className="text-muted-foreground">03</span>
+                <span className="text-muted-foreground">04</span>
                 <Link href="#stack" className="hover:text-stamp hover:underline">
                   Stack
                 </Link>
               </li>
               <li className="flex justify-between pb-1">
-                <span className="text-muted-foreground">04</span>
+                <span className="text-muted-foreground">05</span>
                 <Link href="/contact" className="hover:text-stamp hover:underline">
                   Contact
                 </Link>

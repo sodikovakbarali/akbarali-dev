@@ -1,9 +1,10 @@
 export type ProjectStatus = "live" | "development" | "coming-soon";
 
-export type ScreenshotMock = {
+export type ProjectScreenshot = {
   title: string;
   description: string;
-  variant: "landing" | "dashboard" | "exam" | "grading" | "score" | "proctor" | "ai" | "upcoming";
+  src?: string;
+  variant?: "landing" | "dashboard" | "exam" | "grading" | "score" | "proctor" | "ai" | "upcoming";
 };
 
 export type Project = {
@@ -19,7 +20,8 @@ export type Project = {
   role: string;
   proof: string;
   badges: string[];
-  screenshots: ScreenshotMock[];
+  screenshots: ProjectScreenshot[];
+  heroImage?: string;
   accent: string;
   upcoming?: string[];
 };
@@ -74,26 +76,13 @@ export const projects: Project[] = [
       "Docker",
       "DigitalOcean",
     ],
+    heroImage: "/projects/ielts-acer-mobile.png",
     screenshots: [
       {
-        title: "Landing Page",
-        description: "Product landing with center onboarding and mock booking",
+        title: "Mobile Landing",
+        description: "Practice IELTS. Score higher. — center-facing product page with app download and mock test entry.",
+        src: "/projects/ielts-acer-mobile.png",
         variant: "landing",
-      },
-      {
-        title: "Desktop Exam Session",
-        description: "Secure Electron exam interface with timed sections",
-        variant: "exam",
-      },
-      {
-        title: "Admin Dashboard",
-        description: "Multi-tenant center management and analytics",
-        variant: "dashboard",
-      },
-      {
-        title: "Examiner Grading",
-        description: "Writing review workflow with AI-assisted feedback",
-        variant: "grading",
       },
     ],
     accent: "from-emerald-500/20 to-teal-500/10",
@@ -144,31 +133,14 @@ export const projects: Project[] = [
       "Django",
       "PostgreSQL",
     ],
+    heroImage: "/projects/sat-acer-mobile.png",
     screenshots: [
       {
-        title: "Landing Page",
-        description: "SAT prep platform with student onboarding",
+        title: "Mobile Landing",
+        description:
+          "The Digital SAT, rehearsed like the real thing — Bluebook-style practice with prep center trust signals.",
+        src: "/projects/sat-acer-mobile.png",
         variant: "landing",
-      },
-      {
-        title: "Bluebook Test Session",
-        description: "Adaptive timed mock with calculator and tools",
-        variant: "exam",
-      },
-      {
-        title: "Score Report",
-        description: "RW/Math scaling with domain breakdowns",
-        variant: "score",
-      },
-      {
-        title: "Proctor Dashboard",
-        description: "Live session monitoring and violation tracking",
-        variant: "proctor",
-      },
-      {
-        title: "Ask Acey AI Tutor",
-        description: "Streaming Claude-powered SAT tutoring",
-        variant: "ai",
       },
     ],
     accent: "from-violet-500/20 to-indigo-500/10",

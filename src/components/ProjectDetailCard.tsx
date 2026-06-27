@@ -3,7 +3,7 @@ import { ArrowUpRight, Check } from "lucide-react";
 import type { Project } from "@/data/projects";
 import { Badge } from "@/components/Badge";
 import { DossierPanel } from "@/components/ui-primitives";
-import { ScreenshotMockup } from "@/components/ScreenshotMockup";
+import { ProductScreenshot } from "@/components/ProductScreenshot";
 
 function statusVariant(status: Project["status"]) {
   if (status === "live") return "live";
@@ -61,10 +61,10 @@ export function ProjectDetailCard({
             ))}
           </div>
 
-          <div className="mt-6 flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-            <div>
+          <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+            <div className="max-w-3xl">
               <h2 className="text-2xl font-bold md:text-4xl">{project.name}</h2>
-              <p className="mt-3 max-w-3xl text-base text-muted-foreground md:text-lg">
+              <p className="mt-3 text-base text-muted-foreground md:text-lg">
                 {project.tagline}
               </p>
             </div>
@@ -83,6 +83,24 @@ export function ProjectDetailCard({
         </div>
 
         <div className="space-y-10 p-6 md:p-10">
+          {project.screenshots.length > 0 && (
+            <div>
+              <h3 className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                Product capture
+              </h3>
+              <div className="mt-4 grid gap-6 md:grid-cols-2">
+                {project.screenshots.map((screenshot, i) => (
+                  <ProductScreenshot
+                    key={screenshot.title}
+                    screenshot={screenshot}
+                    exhibit={String.fromCharCode(65 + i)}
+                    priority={index === 0 && i === 0}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+
           <div>
             <h3 className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
               Overview
@@ -131,26 +149,6 @@ export function ProjectDetailCard({
               <p className="mt-4 text-sm text-muted-foreground">{project.proof}</p>
             </div>
           </div>
-
-          {project.screenshots.length > 0 && (
-            <div>
-              <h3 className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                Exhibits
-              </h3>
-              <p className="mt-2 text-xs text-muted-foreground">
-                Mock UI only — no real student or credential data.
-              </p>
-              <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {project.screenshots.map((screenshot, i) => (
-                  <ScreenshotMockup
-                    key={screenshot.title}
-                    screenshot={screenshot}
-                    exhibit={String.fromCharCode(65 + i)}
-                  />
-                ))}
-              </div>
-            </div>
-          )}
         </div>
       </DossierPanel>
     </article>

@@ -10,18 +10,17 @@ export const profile = {
   heroCopy:
     "I build exam-tech products, learning platforms, and practical software systems used by students, teachers, and learning centers.",
   links: {
-    github: "https://github.com/akbarali",
-    telegram: "https://t.me/akbarali",
-    linkedin: "https://linkedin.com/in/akbarali",
-    email: "mailto:akbarali@example.com",
+    github: "https://github.com/sodikovakbarali",
+    telegram: "https://t.me/akbaraali",
+    linkedin: "https://www.linkedin.com/in/akbarali-sodikov/",
+    email: "mailto:akbaralisodikov12@gmail.com",
+    instagram: "https://www.instagram.com/ad_astra_solutions/",
   },
   stats: [
-    { value: "2", label: "Products", description: "major exam-tech products" },
-    { value: "1", label: "Live Platform", description: "production deployment" },
+    { value: "2", label: "Products", description: "major exam-tech platforms" },
+    { value: "1", label: "Live", description: "production deployment" },
     { value: "100+", label: "Load-Tested", description: "concurrent students" },
     { value: "U of A", label: "Education", description: "CS graduate" },
-    { value: "8.0", label: "IELTS", description: "personal score" },
-    { value: "1400", label: "SAT", description: "personal score" },
   ],
   currentlyBuilding: [
     {
@@ -49,6 +48,19 @@ export const profile = {
       "IELTS/SAT center partnerships",
       "Technical consulting",
       "AI automation projects",
+    ],
+  },
+  promotions: {
+    brand: "Ad Astra Solutions",
+    handle: "@ad_astra_solutions",
+    tagline: "Demos, promos, and product updates in the wild",
+    description:
+      "We publish software walkthroughs, feature demos, and center promotions on Instagram — real products shown to real learning centers.",
+    highlights: [
+      "Product demo reels",
+      "Feature launch promos",
+      "Center onboarding clips",
+      "Behind-the-build updates",
     ],
   },
 } as const;

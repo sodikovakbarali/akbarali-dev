@@ -34,7 +34,7 @@ export function StatsSection({
   return (
     <section className="border-b-2 border-foreground bg-background">
       <div className="mx-auto max-w-5xl px-4 md:px-8">
-        <div className="grid grid-cols-2 border-x-2 border-t-2 border-foreground md:grid-cols-3 lg:grid-cols-6">
+        <div className="grid grid-cols-2 border-x-2 border-t-2 border-foreground md:grid-cols-4">
           {stats.map((stat, i) => (
             <StatCard key={stat.label} {...stat} isLast={i === stats.length - 1} />
           ))}
