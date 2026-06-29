@@ -1,0 +1,54 @@
+---
+description: Vercel deployment for akbarali-dev — production URL, auto-deploy from main, CLI verification, and manual deploy commands. Use when the user asks about deploying, pushing to production, Vercel status, preview URLs, or whether changes are live.
+alwaysApply: false
+---
+
+# akbarali.dev — Vercel Deployment
+
+## Live setup (verified)
+
+| Field | Value |
+|-------|-------|
+| Vercel project | `akbarali-dev` |
+| Team | `akbarali-s-org-vercel` |
+| Production URL | https://akbarali-dev.vercel.app |
+| GitHub repo | `sodikovakbarali/akbarali-dev` |
+| Production branch | `main` |
+| Auto-deploy | **Yes** — push to `main` triggers a production deployment |
+| Framework | Next.js 15 (App Router), static/content-only (no DB) |
+| Node | 24.x |
+
+## What happens on push
+
+1. Commit and push to `main`.
+2. Vercel builds automatically (~30–45s).
+3. Production alias updates at https://akbarali-dev.vercel.app.
+
+No manual `vercel deploy` is required when Git integration is connected.
+
+## Verify deployment (CLI)
+
+```bash
+vercel ls                          # recent deployments + status
+vercel inspect akbarali-dev.vercel.app   # current production deployment
+vercel whoami                      # confirm logged-in account
+```
+
+## Manual deploy (if needed)
+
+```bash
+npx vercel deploy --yes            # preview
+npx vercel deploy --prod --yes     # production (usually unnecessary)
+```
+
+## Agent behavior
+
+- After content changes the user wants live: commit → push to `main` → confirm deploy with `vercel ls` or `vercel inspect`.
+- Do **not** assume deploy failed without checking CLI output; auto-deploy is active for this project.
+- Prefer Vercel CLI over MCP if the Vercel MCP server is unavailable.
+- This site has no secrets in repo; no env vars are required for basic deploys.
+
+## Related docs
+
+- Local README: `README.md` → Deployment (Vercel) section
+- Vercel plugin skills: `deployments-cicd`, `vercel-cli`

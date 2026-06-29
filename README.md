@@ -70,21 +70,29 @@ Edit placeholder entries in [`src/data/build-log.ts`](src/data/build-log.ts).
 
 ## Deployment (Vercel)
 
-This project is deploy-ready for Vercel.
+This project is connected to Vercel with **automatic production deploys on push to `main`**.
 
-### Preview Deploy
+| | |
+|---|---|
+| Production URL | https://akbarali-dev.vercel.app |
+| Vercel project | `akbarali-dev` (team: `akbarali-s-org-vercel`) |
+| Build time | ~30–45 seconds |
+
+### Verify a deploy
 
 ```bash
-npx vercel deploy --yes
+vercel ls
+vercel inspect akbarali-dev.vercel.app
 ```
 
-### Production Deploy
+### Manual deploy (optional)
 
 ```bash
-npx vercel deploy --prod --yes
+npx vercel deploy --yes            # preview
+npx vercel deploy --prod --yes     # production
 ```
 
-Or connect the GitHub repo to Vercel for automatic preview/production deployments on push.
+Cursor agents should read `.cursor/rules/vercel-deployment.mdc` for full deployment context when answering deploy questions.
 
 ## Public Safety Note
 
