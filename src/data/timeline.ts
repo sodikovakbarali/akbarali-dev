@@ -25,34 +25,26 @@ export const timeline: TimelineItem[] = [
   },
   {
     year: "2026",
-    title: "Returned to Uzbekistan",
-    description:
-      "Returned to Uzbekistan and started building education technology products.",
-    logo: "/logos/return-home.svg",
-    logoAlt: "Returned to build in Uzbekistan",
-  },
-  {
-    year: "2026",
     title: "IELTS Acer Launch",
     description:
       "Built and launched IELTS Acer for computer-delivered IELTS mock testing.",
-    logo: "/logos/ielts-acer.png",
-    logoAlt: "IELTS Acer logo",
+    logo: "/logos/ielts-acer-placeholder.svg",
+    logoAlt: "IELTS Acer logo placeholder",
   },
   {
     year: "2026",
     title: "SAT Acer Development",
     description:
       "Started building SAT Acer for Digital SAT preparation and adaptive mock exams.",
-    logo: "/logos/sat-acer.png",
-    logoAlt: "SAT Acer logo",
+    logo: "/logos/sat-acer-placeholder.svg",
+    logoAlt: "SAT Acer logo placeholder",
   },
   {
     year: "2026",
     title: "Education Mentorship",
     description:
       "Mentored students and worked on SAT/IELTS education systems in Bukhara.",
-    logo: "/logos/mentorship.svg",
-    logoAlt: "Education mentorship",
+    logo: "/logos/college-board-sat.png",
+    logoAlt: "College Board SAT logo",
   },
 ];

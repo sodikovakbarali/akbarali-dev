@@ -15,13 +15,15 @@ export const profile = {
     linkedin: "https://www.linkedin.com/in/akbarali-sodikov/",
     email: "mailto:akbaralisodikov12@gmail.com",
     instagram: "https://www.instagram.com/ad_astra_solutions/",
+    personalInstagram: "https://www.instagram.com/akbarali_sodikov1/",
   },
   stats: [
     { value: "2", label: "Products", description: "major exam-tech platforms" },
-    { value: "1", label: "Live", description: "production deployment" },
-    { value: "100+", label: "Load-Tested", description: "concurrent students" },
+    { value: "2", label: "Live", description: "production deployments" },
+    { value: "1K+", label: "Load-Tested", description: "concurrent students" },
     { value: "U of A", label: "Education", description: "CS graduate" },
   ],
+  statsNote: "Stress-tested for center-scale exam sessions.",
   currentlyBuilding: [
     {
       name: "IELTS Acer",

@@ -18,7 +18,7 @@ export default function HomePage() {
   return (
     <SiteLayout>
       <HeroSection />
-      <StatsSection stats={profile.stats} />
+      <StatsSection stats={profile.stats} note={profile.statsNote} />
 
       <PageShell>
         <section id="projects">
@@ -60,7 +60,7 @@ export default function HomePage() {
             number="03"
             eyebrow="Record"
             title="Proof of work timeline"
-            description="From scholarship to CS degree to building exam-tech products in Uzbekistan."
+            description="From scholarship to CS degree to shipping exam-tech products."
           />
           <Timeline items={timeline} />
         </section>

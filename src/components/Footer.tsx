@@ -24,7 +24,7 @@ export function Footer() {
           <Link href={profile.links.linkedin} className="hover:text-stamp hover:underline">
             LinkedIn
           </Link>
-          <Link href={profile.links.instagram} className="hover:text-stamp hover:underline">
+          <Link href={profile.links.personalInstagram} className="hover:text-stamp hover:underline">
             Instagram
           </Link>
           <Link href={profile.links.email} className="hover:text-stamp hover:underline">

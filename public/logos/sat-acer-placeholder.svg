@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" fill="#f5f0e8"/>
+  <rect x="8" y="8" width="48" height="48" stroke="#1a1a1a" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
+  <text x="32" y="30" text-anchor="middle" font-family="monospace" font-size="7" font-weight="bold" fill="#888">SAT</text>
+  <text x="32" y="40" text-anchor="middle" font-family="monospace" font-size="7" font-weight="bold" fill="#888">ACER</text>
+</svg>

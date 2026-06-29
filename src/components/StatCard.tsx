@@ -28,8 +28,10 @@ export function StatCard({
 
 export function StatsSection({
   stats,
+  note,
 }: {
   stats: readonly { value: string; label: string; description: string }[];
+  note?: string;
 }) {
   return (
     <section className="border-b-2 border-foreground bg-background">
@@ -39,6 +41,11 @@ export function StatsSection({
             <StatCard key={stat.label} {...stat} isLast={i === stats.length - 1} />
           ))}
         </div>
+        {note && (
+          <p className="border-x-2 border-b-2 border-foreground px-4 py-3 text-center text-xs text-muted-foreground md:px-6">
+            {note}
+          </p>
+        )}
       </div>
     </section>
   );

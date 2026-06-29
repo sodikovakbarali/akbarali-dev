@@ -7,7 +7,7 @@ export function ContactCTA({ showAvailability = true }: { showAvailability?: boo
     { label: "Telegram", href: profile.links.telegram },
     { label: "GitHub", href: profile.links.github },
     { label: "LinkedIn", href: profile.links.linkedin },
-    { label: "Instagram", href: profile.links.instagram },
+    { label: "Instagram", href: profile.links.personalInstagram },
     { label: "Email", href: profile.links.email },
   ];
 
