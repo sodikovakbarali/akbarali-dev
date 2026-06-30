@@ -15,7 +15,9 @@ alwaysApply: false
 | GitHub repo | `sodikovakbarali/akbarali-dev` |
 | Production branch | `main` |
 | Auto-deploy | **Yes** — push to `main` triggers a production deployment |
-| Framework | Next.js 15 (App Router), static/content-only (no DB) |
+| Production URL | https://akbaralidev.uz (also https://akbarali-dev.vercel.app) |
+| Custom domain | `akbaralidev.uz` + `www.akbaralidev.uz` |
+| Framework | Next.js 15 (App Router), Neon Postgres + Clerk analytics |
 | Node | 24.x |
 
 ## What happens on push
@@ -46,7 +48,7 @@ npx vercel deploy --prod --yes     # production (usually unnecessary)
 - After content changes the user wants live: commit → push to `main` → confirm deploy with `vercel ls` or `vercel inspect`.
 - Do **not** assume deploy failed without checking CLI output; auto-deploy is active for this project.
 - Prefer Vercel CLI over MCP if the Vercel MCP server is unavailable.
-- This site has no secrets in repo; no env vars are required for basic deploys.
+- This site requires Clerk and Neon env vars for the analytics admin portal. See `.env.example` and `docs/domain-setup.md`.
 
 ## Related docs
 

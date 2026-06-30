@@ -6,11 +6,16 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "db:push": "dotenv -e .env.local -- drizzle-kit push",
+    "db:studio": "dotenv -e .env.local -- drizzle-kit studio"
   },
   "dependencies": {
+    "@clerk/nextjs": "^6.39.5",
+    "@neondatabase/serverless": "^1.1.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "drizzle-orm": "^0.45.2",
     "framer-motion": "^12.42.0",
     "lucide-react": "^1.21.0",
     "next": "15.5.19",
@@ -27,6 +32,8 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dotenv-cli": "^11.0.0",
+    "drizzle-kit": "^0.31.10",
     "eslint": "^9",
     "eslint-config-next": "15.5.19",
     "tailwindcss": "^4",

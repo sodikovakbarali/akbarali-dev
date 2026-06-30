@@ -12,17 +12,21 @@ This is not a generic portfolio. It is a polished public builder profile showcas
 - **shadcn/ui**
 - **Framer Motion**
 - **Lucide React**
+- **Clerk** — admin authentication
+- **Neon Postgres** — analytics storage
+- **Drizzle ORM** — database schema and queries
 
-No database — all content lives in TypeScript config files under `src/data/`.
+Content lives in TypeScript config files under `src/data/`. Visitor analytics are stored in Neon Postgres.
 
 ## Features
 
-- Dark premium developer-tool aesthetic
+- Dossier-style public portfolio aesthetic
 - Mobile-first responsive design
 - Data-driven content (profile, projects, timeline, stack, build log)
-- Reusable components with glassmorphism cards and subtle animations
 - SEO + Open Graph metadata
-- Mock UI screenshot placeholders (no real private data)
+- **Custom domain**: [akbaralidev.uz](https://akbaralidev.uz)
+- **Analytics admin portal** at `/admin/analytics` (Clerk-protected)
+- First-party visitor tracking with metadata (geo, device, referrer, UTM, sessions)
 - Pages: Home, Projects, Build Log, Contact
 
 ## Local Setup
@@ -37,10 +41,60 @@ Open [http://localhost:3000](http://localhost:3000).
 ### Other Commands
 
 ```bash
-npm run build   # Production build
-npm run start   # Start production server
-npm run lint    # ESLint
+npm run build      # Production build
+npm run start      # Start production server
+npm run lint       # ESLint
+npm run db:push    # Push schema to Neon (requires .env.local)
+npm run db:studio  # Open Drizzle Studio
 ```
+
+## Environment Variables
+
+Copy `.env.example` to `.env.local` and fill in values:
+
+```bash
+cp .env.example .env.local
+```
+
+| Variable | Purpose |
+|----------|---------|
+| `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | Clerk public key |
+| `CLERK_SECRET_KEY` | Clerk server key |
+| `DATABASE_URL` | Neon Postgres connection string |
+| `ANALYTICS_IP_SALT` | Salt for hashing visitor IPs |
+
+### Provision on Vercel
+
+```bash
+vercel integration add clerk
+vercel integration add neon
+vercel env pull .env.local --yes
+npm run db:push
+```
+
+Set `ANALYTICS_IP_SALT` manually in Vercel → Settings → Environment Variables (use a long random string).
+
+## Analytics Admin Portal
+
+- **URL**: `/admin/analytics` (requires Clerk sign-in)
+- **Sign in**: `/sign-in`
+- Tracks page views, sessions, referrers, UTM campaigns, geo, device/browser/OS
+- Live visitors (last 5 minutes), bounce rate, session duration
+- CSV export for any time range
+- Auto-refreshes every 60 seconds
+
+Visitor IPs are hashed before storage. Bot traffic is flagged and excluded from visitor counts.
+
+## Custom Domain (akbaralidev.uz)
+
+See [docs/domain-setup.md](docs/domain-setup.md) for full DNS instructions.
+
+**Quick DNS changes** (keep mail records unchanged):
+
+| Record | Type | Value |
+|--------|------|-------|
+| `akbaralidev.uz` | A | `76.76.21.21` |
+| `www.akbaralidev.uz` | CNAME | `cname.vercel-dns.com` |
 
 ## How to Edit Profile Data
 
@@ -74,7 +128,7 @@ This project is connected to Vercel with **automatic production deploys on push 
 
 | | |
 |---|---|
-| Production URL | https://akbarali-dev.vercel.app |
+| Production URL | https://akbaralidev.uz (also https://akbarali-dev.vercel.app) |
 | Vercel project | `akbarali-dev` (team: `akbarali-s-org-vercel`) |
 | Build time | ~30–45 seconds |
 
@@ -111,10 +165,17 @@ Replace mock screenshot components with sanitized marketing screenshots when rea
 
 ```
 src/
-├── app/              # Next.js pages (/, /projects, /build-log, /contact)
-├── components/       # Reusable UI components
-├── data/             # Content config files
-└── lib/              # Utilities (cn helper)
+├── app/
+│   ├── admin/analytics/   # Protected analytics dashboard
+│   ├── api/analytics/     # Public tracking endpoint
+│   ├── api/admin/         # Protected analytics API
+│   └── sign-in/           # Clerk auth
+├── components/
+│   ├── admin/             # Dashboard UI
+│   └── AnalyticsTracker.tsx
+├── db/                    # Drizzle schema + Neon client
+├── data/                  # Content config files
+└── lib/analytics/         # Tracking + dashboard queries
 ```
 
 ## License
